@@ -1,0 +1,135 @@
+
+
+.left__side{
+top:15px;
+position: fixed;
+display: flex;
+flex-direction: column;
+left: 3em;
+margin-left: 12px;
+padding-bottom: 2em;
+width: 250px;
+}
+.left__side__link__sections{
+    display: flex;
+    flex-direction: row;
+    width: 180px;
+    line-height: 2em;
+    padding-left: 8px;
+    padding-top: 8px;
+    color:white;
+}
+.left__side__link__sections:hover{
+    background-color: rgba(134, 132, 132, .2);
+    border-radius: 30px;
+  
+}
+.logo{
+    width: 35px;
+    height: 1.8em;
+    padding-bottom: 1em;
+}
+svg{
+     color:white;
+     padding-bottom: .7em;
+     width: 26px;
+     height: 1.9em;
+}
+a{
+    color: white;
+}
+span{
+    vertical-align: middle;
+  margin-left: 20px;
+  font-size: 20px;
+}
+button{
+    cursor: pointer;
+}
+.tweet__blue__button{
+    background-color: rgb(31, 161, 243);
+    color: white;
+    border-radius: 30px;
+    padding: 16px 14px 16px 14px;
+    font-size: 17px;
+    font-weight: 800;
+    width: 223px;
+    margin-top: .4em;
+}
+.tweet__blue__button:hover{
+    background-color: rgb(25, 142, 214);
+}
+.tweet__blue__responsive__button{
+display: none;
+}
+.user__information{
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    bottom: 15px;
+    border-radius: 30px;
+    padding: 10px 10px 5px 15px;
+    color: white;
+}
+.user__information:hover{
+    background-color: rgba(134, 132, 132, .2);
+    border-radius: 30px;
+}
+.user__information  button{
+    background:transparent;
+    color: white;
+    font-size:21px;
+     padding-left: 30px;
+     justify-content: center;
+     align-items: center;
+    
+}
+.user__information img{
+     height:40px;
+}
+.user__information_text{
+   text-align: center;
+   margin-left: 10px;
+    font-size: 15px;
+}
+.user__information__handle{
+    color: rgb(89, 90, 90);
+}
+
+/* ---------- */
+/* .more__options__container{
+    display: block;
+    background-color: red;
+    color: white;
+}
+ */
+
+
+
+@media screen and (max-width:1234px){
+    span{
+        display: none;
+    }
+    .tweet__blue__button{
+        display: none;
+    }
+    .tweet__blue__responsive__button{
+        display: block;
+        border-radius: 50%;
+        background-color:rgb(31, 161, 243);
+        width: 50px;
+        padding: 8px 5px 2px 5px;
+    }
+    .user__information_text{
+        display: none;
+    }
+    .user__information  button{
+        display: none;
+    }
+}
+@media screen and (max-width:500px){
+    .left__side{
+        display: none;
+    }
+}
