@@ -1,36 +1,69 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { Link } from 'react-router-dom';
-import {BsTwitter, BsFillBellFill, BsFillBookmarkHeartFill, BsFillPersonFill} from 'react-icons/bs';
-import { ImHome2 } from 'react-icons/im';
-import {FaHashtag, FaEnvelope, FaTwitterSquare} from 'react-icons/fa';
-import {FiFeather} from 'react-icons/fi';
-import {CiCircleMore} from 'react-icons/ci';
 import Avatar from "../images/avatar.png";
+import informationList from '../informationList';
+// import {BiMessageRoundedDetail} from "react-icons/bi";
+import {FiFeather} from 'react-icons/fi';
+import {BsTwitter} from 'react-icons/bs';
+import {CiCircleMore} from 'react-icons/ci';
 import "../Pages/Home.css";
 
 
-// function displaymoreOptions(){
-//     return(
-//         <div className='more__options__container'>
-//             <h1>hello</h1>
-            
-//         </div>
-//     )
-// }
-
-
 function Homeleft() {
+
+  const [isActive, setIsActive] = useState(false);
+
+  const moreDisplayOptions =() =>{
+    <div className='more__display__options__container'>
+       <div className='display__optionts'>{informationList.nonAccordionData?.map((item) =>{
+        return(
+        <svg key={item.id}>{item.icon}</svg>,
+        <h3 key={item.id}>{item.title}</h3>
+        )
+       })}
+       </div>
+    <div className="accordion__container">
+   <div className="accordion__item">
+    <div
+      className="accordion-title"
+      onClick={() => setIsActive(!isActive)}
+    >
+      <div>{informationList.homeData?.map((item)=>{
+        return(
+          <h4 key={item.id}>{item.title}</h4>
+        )
+      })}</div>
+      <div>{isActive ? '-' : '+'}</div>
+    </div>
+   
+    {isActive && <div className="accordion-content"> {informationList.homeData?.map((item)=>{
+      return(
+        <>
+        <svg key={item.id}>{item.icon}</svg>
+        <h4 key={item.id}>{item.content}</h4>
+        </>
+      )
+    })}</div>}
+  </div>
+</div>
+</div>
+  }
+
+ 
   return (
     <div className='left__side'>
         <Link to="/home"><BsTwitter className='logo'/></Link>
-        <Link to="/home"><div className='left__side__link__sections'><ImHome2/><span>Home</span></div></Link>
-        <Link to="/explore"><div className='left__side__link__sections'><FaHashtag/><span>Explore</span></div></Link>
-       <Link to="/notifications"><div className='left__side__link__sections'><BsFillBellFill/><span>Notifications</span></div></Link>
-        <Link to="/messages"><div className='left__side__link__sections'><FaEnvelope/><span>Messages</span></div></Link>
-        <Link to="/bookmarks"><div className='left__side__link__sections'><BsFillBookmarkHeartFill/><span>Bookmarks</span></div></Link>
-       <Link to="/twitter_blue"><div className='left__side__link__sections'><FaTwitterSquare/><span>Twitter Blue</span></div></Link>
-        <Link to="/profile"><div className='left__side__link__sections'><BsFillPersonFill/><span>Profile</span></div></Link>
-        <div className='left__side__link__sections btn_left'><CiCircleMore/><span>More</span></div>
+        <Link to="/home"><div className='left__side__link__sections'>{informationList.leftData?.map((item) =>{
+          return(
+            <>
+            <svg key={item.id}>{item.icon}</svg>
+            <span key={item.id}>{item.title}</span>
+            </>
+          )
+
+        })}
+        </div></Link>
+        <Link to="/home"><div className='left__side__link__sections' onClick={moreDisplayOptions}><CiCircleMore/><span>More</span></div></Link>
         <button className='tweet__blue__button'>Tweet</button>
         <button className='tweet__blue__responsive__button'><FiFeather/></button>
         <div className='user__information'>
@@ -45,6 +78,7 @@ function Homeleft() {
     </div>
   )
 }
+
 
 export default Homeleft
 
